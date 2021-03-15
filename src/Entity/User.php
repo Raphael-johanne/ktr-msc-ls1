@@ -40,6 +40,11 @@ class User implements UserInterface
      */
     private $name;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Profile::class, cascade={"persist", "remove"})
+     */
+    private $Profile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -129,6 +134,18 @@ class User implements UserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+        return $this;
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return $this->Profile;
+    }
+
+    public function setProfile(?Profile $Profile): self
+    {
+        $this->Profile = $Profile;
+
         return $this;
     }
 }

@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Doctrine\ORM\NoResultException;
 
 class ProfileController extends AbstractController
 {
@@ -20,15 +19,11 @@ class ProfileController extends AbstractController
      */
     public function new(Request $request, TranslatorInterface $translator): Response
     {
-        $em                 = $this->getDoctrine()->getManager();
-        $profileRepository  = $em->getRepository('App:Profile');
+        $user   = $this->getUser();
+        $em     = $this->getDoctrine()->getManager();
 
-        if ($id = $request->query->get('id')) {
-            $profile = $profileRepository->find($id);
-
-            if (is_null($profile)) {
-                throw new NoResultException('The resource does not exist');
-            }
+        if (!is_null($user->getProfile())) {
+            $profile = $user->getProfile();
         } else {
             $profile = new Profile();
         }
@@ -39,11 +34,15 @@ class ProfileController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $profile    = $form->getData();
+            $user->setProfile($profile);
 
             $em->persist($profile);
+            $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('profile_edit', ['id' => $profile->getId()]);
+            $this->addFlash('success', $translator->trans('success.profile.updated'));
+
+            return $this->redirectToRoute('profile_edit');
         }
 
         return $this->render('card/edit.html.twig', [

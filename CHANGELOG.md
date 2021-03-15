@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.5] - 2021-03-15
+
+### Added
+
+#### Bonus 2 - Multi users
+
+- Create one profile per user (relation one to one)
+- EN translations
+- Not mandatory but add of a register form to create different users (usefull for testing multi users)
+- Flash messages
+
 ## [0.0.4] - 2021-03-15
 
 ### Added

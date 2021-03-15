@@ -28,6 +28,17 @@
         {% endif %}
       </ul>
     </nav>
+     <div class="container">
+      <div class="row">
+        <div class="col-md-10 ml-md-auto">
+          {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
   </body>
