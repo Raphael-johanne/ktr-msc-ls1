@@ -19,7 +19,6 @@ Clone the project from github
 ```sh
 $ git clone git@github.com:Raphael-johanne/ktr-msc-ls1.git
 $ cd ktr-msc-ls1
-$ git checkout develop
 ```
 Develop containing all developments exept the final bonus
 
