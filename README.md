@@ -20,7 +20,7 @@ Clone the project from github
 $ git clone git@github.com:Raphael-johanne/ktr-msc-ls1.git
 $ cd ktr-msc-ls1
 ```
-Develop containing all developments exept the final bonus
+Master containing all developments exept the final bonus
 
 #### Configuring the Database
 
@@ -37,6 +37,7 @@ business_card is the name of the database
 
 ```sh
 $ cd ktr-msc-ls1
+$ composer install
 $ symfony server:start
 ```
 
