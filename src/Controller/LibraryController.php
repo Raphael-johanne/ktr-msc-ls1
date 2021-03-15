@@ -20,7 +20,7 @@ class LibraryController extends AbstractController
     {
         $form = $this->createForm(LibraryType::class);
 
-        return $this->render('card/new.html.twig', [
+        return $this->render('card/edit.html.twig', [
             'form'      => $form->createView(),
             'form_name' => $translator->trans('library.interface')
         ]);
