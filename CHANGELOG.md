@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create one profile per user (relation one to one)
 - EN translations
 - Not mandatory but add of a register form to create different users (usefull for testing multi users)
+- Flash messages
 
 ## [0.0.4] - 2021-03-15
 

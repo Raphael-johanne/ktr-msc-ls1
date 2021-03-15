@@ -40,6 +40,8 @@ class ProfileController extends AbstractController
             $em->persist($user);
             $em->flush();
 
+            $this->addFlash('success', $translator->trans('success.profile.updated'));
+
             return $this->redirectToRoute('profile_edit');
         }
 
