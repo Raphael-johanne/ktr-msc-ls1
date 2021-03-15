@@ -13,6 +13,20 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 70px;">
       <a class="navbar-brand" href="#">{%trans%}business.card.manager{%endtrans%}</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if app.user %}
+            <li>
+                <a class="nav-link" href="{{ path('profile_new') }}">
+                    {%trans%}profile{%endtrans%}
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('library_new') }}">
+                    {%trans%}library{%endtrans%}
+                </a>
+            </li>
+        {% endif %}
+      </ul>
     </nav>
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
