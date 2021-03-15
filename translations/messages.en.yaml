@@ -9,3 +9,6 @@ password: Password
 email: Email
 profile: Profile
 library: Library
+havent.got.account.yet: I haven't got an account yet
+register: Register
+cancel: Cancel
