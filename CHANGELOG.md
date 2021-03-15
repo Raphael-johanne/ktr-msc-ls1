@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+#### Bonus 3 - User switch
+
+- Allow users to log out
+- EN translations
+
+## [0.0.5] - 2021-03-15
+
+### Added
+
 #### Bonus 2 - Multi users
 
 - Create one profile per user (relation one to one)

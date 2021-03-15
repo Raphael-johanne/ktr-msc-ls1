@@ -14,3 +14,4 @@ register: Register
 cancel: Cancel
 success.account.created: Your account has been created successfully
 success.profile.updated: Your profile has been updated successfully
+logout: Logout
