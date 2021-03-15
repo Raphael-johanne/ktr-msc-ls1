@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -44,6 +46,16 @@ class User implements UserInterface
      * @ORM\OneToOne(targetEntity=Profile::class, cascade={"persist", "remove"})
      */
     private $Profile;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Library::class, mappedBy="user")
+     */
+    private $Libraries;
+
+    public function __construct()
+    {
+        $this->Libraries = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -145,6 +157,36 @@ class User implements UserInterface
     public function setProfile(?Profile $Profile): self
     {
         $this->Profile = $Profile;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Library[]
+     */
+    public function getLibraries(): Collection
+    {
+        return $this->Libraries;
+    }
+
+    public function addLibrary(Library $library): self
+    {
+        if (!$this->Libraries->contains($library)) {
+            $this->Libraries[] = $library;
+            $library->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLibrary(Library $library): self
+    {
+        if ($this->Libraries->removeElement($library)) {
+            // set the owning side to null (unless already changed)
+            if ($library->getUser() === $this) {
+                $library->setUser(null);
+            }
+        }
 
         return $this;
     }
