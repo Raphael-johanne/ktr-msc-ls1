@@ -1,0 +1,18 @@
+business.card.manager: Business card manager
+profile.interface: Profile Interface
+library.interface: Library Interface
+log.in: Log in
+login: Login
+sign.in: Sign in
+please.sign.in: Please sign in
+password: Password
+email: Email
+profile: Profile
+library: Library
+havent.got.account.yet: I haven't got an account yet
+register: Register
+cancel: Cancel
+success.account.created: Your account has been created successfully
+success.profile.updated: Your profile has been updated successfully
+logout: Logout
+success.library: A new business card has been created successfully

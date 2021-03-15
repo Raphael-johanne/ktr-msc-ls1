@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{%trans%}business.card.manager{%endtrans%}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 70px;">
+      <a class="navbar-brand" href="#">{%trans%}business.card.manager{%endtrans%}</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if app.user %}
+            <li>
+                <a class="nav-link" href="{{ path('profile_edit') }}">
+                    {%trans%}profile{%endtrans%}
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('library_add') }}">
+                    {%trans%}library{%endtrans%}
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('app_logout') }}">
+                    {%trans%}logout{%endtrans%}
+                </a>
+            </li>
+        {% endif %}
+      </ul>
+    </nav>
+     <div class="container">
+      <div class="row">
+        <div class="col-md-10 ml-md-auto">
+          {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
 </html>
