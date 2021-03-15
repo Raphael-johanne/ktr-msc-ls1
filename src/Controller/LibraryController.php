@@ -2,27 +2,27 @@
 
 namespace App\Controller;
 
-use App\Form\Type\ProfileType;
+use App\Form\Type\LibraryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ProfileController extends AbstractController
+class LibraryController extends AbstractController
 {
     /**
-     * @Route("/profile/new", name="profile_new")
+     * @Route("/library/new", name="library_new")
      * @param Request             $request
      * @param TranslatorInterface $translator
      */
     public function new(Request $request, TranslatorInterface $translator): Response
     {
-        $form = $this->createForm(ProfileType::class);
+        $form = $this->createForm(LibraryType::class);
 
         return $this->render('card/new.html.twig', [
             'form'      => $form->createView(),
-            'form_name' => $translator->trans('profile.interface')
+            'form_name' => $translator->trans('library.interface')
         ]);
     }
 }
