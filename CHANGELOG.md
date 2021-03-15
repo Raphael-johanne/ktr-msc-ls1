@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-#### Step 3 - "Profile" interface
+#### Step 3 - Data protection
 
 - Create a password protection system for this interface.
 - Create database
