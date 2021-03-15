@@ -17,29 +17,11 @@ evenings.
 Clone the project from github
 
 ```sh
-git clone git@github.com:Raphael-johanne/ktr-msc-ls1.git
+$ git clone git@github.com:Raphael-johanne/ktr-msc-ls1.git
+$ cd ktr-msc-ls1
+$ git checkout develop
 ```
-
-if you run
-
-```sh
-git branch
-```
-
-You can see all branches, the correct development order is:
-
-- step-2-profile-interface
-- step-3-data-protection
-- step-4-library-interface
-- bonus-1-save-the-datas
-- bonus-2-multi-users
-- bonus-3-user-switch
-- bonus-33-persist-library-collection (not mandatory but usefull for bonus that I haven't understood)
-- readme-documentation
-- develop
-- master
-
-Master containing all developments exept the final bonus
+Develop containing all developments exept the final bonus
 
 #### Configuring the Database
 
